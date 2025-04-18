@@ -1,0 +1,50 @@
+{
+    "name": "fostercommerce/imagerx-imgproxy",
+    "type": "craft-plugin",
+    "license": "MIT",
+	"version": "0.1.0",
+    "extra": {
+        "handle": "imagerx-imgproxy",
+        "name": "ImagerX ImgProxy",
+        "developer": "Foster Commerce",
+        "class": "fostercommerce\\imagerx\\imgproxy\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "fostercommerce\\imagerx\\imgproxy\\": "src/"
+        }
+    },
+    "require": {
+        "fostercommerce/imgproxy": "dev-main",
+        "spacecatninja/imager-x": "^5.1",
+        "craftcms/commerce": "^5.0.0",
+        "php": "^8.2"
+    },
+	"require-dev": {
+		"fostercommerce/ecs": "dev-main",
+		"fostercommerce/rector": "dev-main",
+		"phpstan/phpstan": "^1.12"
+	},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/FosterCommerce/imgproxy-php.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "craftcms/plugin-installer": true,
+            "yiisoft/yii2-composer": true
+        }
+    },
+	"scripts": {
+		"phpstan": "phpstan --memory-limit=1G",
+		"ecs:check": "ecs check --ansi --memory-limit=1G",
+		"ecs:fix": "ecs check --ansi --fix --memory-limit=1G",
+		"rector:fix": "rector process --config rector.php",
+		"rector:dry-run": "rector process --dry-run --config rector.php",
+		"test": "pest"
+	}
+}
