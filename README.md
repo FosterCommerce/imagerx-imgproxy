@@ -4,54 +4,28 @@ This module provides an [imgproxy](https://imgproxy.net/) transformer for [Image
 
 ## Requirements
 
-- Craft CMS 4.0.0+
+- Craft CMS 5.0.0+
 - ImagerX 5.1.0+
-- PHP 8.0+
+- PHP 8.2+
 
 ## Installation
 
-1. Add the module to your project:
-
 ```bash
 composer require fostercommerce/imagerx-imgproxy
-```
-
-2. Add the module to your `config/app.php`:
-
-```php
-return [
-    'modules' => [
-        'imagerx-imgproxy' => [
-            'class' => \fostercommerce\imagerx\imgproxy\Module::class,
-        ],
-    ],
-    'bootstrap' => ['imagerx-imgproxy'],
-];
+php craft plugin/install imagerx-imgproxy
 ```
 
 ## Configuration
 
-Add the imgproxy configuration to your ImagerX config file (`config/imager-x.php`):
+Add the imgproxy configuration to your ImagerX config file (`config/imagerx-imgproxy.php`):
 
 ```php
-<?php
-
 return [
-    // other ImagerX config...
-    
-    'imgproxyConfig' => [
-        'default' => [
-            'baseUrl' => 'https://imgproxy.example.com', 
-            'key' => 'your-key', // Optional if not using signatures
-            'salt' => 'your-salt', // Optional if not using signatures
-            'signatureSize' => 32, // Default: 32
-            'encoded' => true, // Default: true
-        ],
-        // You can define multiple profiles
-        'another' => [
-            // ...
-        ],
-    ],
+    'baseUrl' => getenv('IMGPROXY_BASE_URL'),
+    'key' => getenv('IMGPROXY_KEY') ?: null,
+    'salt' => getenv('IMGPROXY_SALT') ?: null,
+    'encoded' => true,
+    'defaultParams' => [],
 ];
 ```
 
@@ -60,38 +34,18 @@ return [
 Once installed and configured, you can use the transformer with ImagerX:
 
 ```twig
-{% set transforms = craft.imagerX.transformImage(asset, [
-    {
-        width: 400,
-        height: 300,
-        mode: 'crop',
-        format: 'webp',
-        transformer: 'imgproxy',
-        imgproxyProfile: 'default' // Optional, defaults to 'default'
-    }
-]) %}
-
-<img src="{{ transforms[0].url }}" width="{{ transforms[0].width }}" height="{{ transforms[0].height }}">
-```
-
-### Transformer Parameters
-
-You can pass specific imgproxy parameters using the `transformerParams` key:
-
-```twig
-{% set transforms = craft.imagerX.transformImage(asset, [
-    {
-        width: 400,
-        height: 300,
-        mode: 'crop',
-        transformer: 'imgproxy',
-        transformerParams: {
-            blur: 10,
-            watermark: '/path/to/watermark.png',
-            watermarkOpacity: 0.5
-        }
-    }
-]) %}
+{% set transformedImages = craft.imagerx.transformImage(rawImage, [
+  { width: 74, height: 74 },
+  { width: 120, height: 120 },
+  { width: 172, height: 172 },
+  { width: 254, height: 254 }
+], {
+  mode: 'crop',
+  transformerParams: {
+    padding: 10,
+    background: '255:0:0',
+  },
+}) %}
 ```
 
 ## License
