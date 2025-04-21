@@ -30,8 +30,6 @@ return [
 ];
 ```
 
-Take a look at the Imgproxy [processing options](https://docs.imgproxy.net/usage/processing#processing-options) for a list of available options to use in the `defaultParams` array.
-
 ## Usage
 
 Once installed and configured, you can use the transformer with ImagerX:
@@ -51,7 +49,11 @@ Once installed and configured, you can use the transformer with ImagerX:
 }) %}
 ```
 
-Take a look at the Imgproxy [processing options](https://docs.imgproxy.net/usage/processing#processing-options) for a list of available options to use in the `transformerParams` array.
+## Notes
+
+Take a look at the Imgproxy [processing options](https://docs.imgproxy.net/usage/processing#processing-options) for a list of available options to use in the `defaultParams` and `transformerParams` arrays.
+
+This transformer uses [fostercommerce/imgproxy](https://github.com/fostercommerce/imgproxy-php) under the hood. Take a look there for more usage information.
 
 ## License
 
