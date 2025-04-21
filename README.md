@@ -1,11 +1,11 @@
-# ImagerX Imgproxy Transformer
+# Imager X Imgproxy Transformer
 
-This module provides an [imgproxy](https://imgproxy.net/) transformer for [ImagerX](https://github.com/spacecatninja/craft-imager-x).
+This module provides an [imgproxy](https://imgproxy.net/) transformer for [Imager X](https://github.com/spacecatninja/craft-imager-x).
 
 ## Requirements
 
 - Craft CMS 5.0.0+
-- ImagerX 5.1.0+
+- Imager X 5.1.0+
 - PHP 8.2+
 
 ## Installation
@@ -17,7 +17,7 @@ php craft plugin/install imagerx-imgproxy
 
 ## Configuration
 
-Add the imgproxy configuration to your ImagerX config file (`config/imagerx-imgproxy.php`):
+Add the imgproxy configuration to your Imager X Imgproxy transformer config file (`config/imagerx-imgproxy.php`):
 
 ```php
 return [
@@ -32,7 +32,7 @@ return [
 
 ## Usage
 
-Once installed and configured, you can use the transformer with ImagerX:
+Once installed and configured, you can use the transformer with Imager X:
 
 ```twig
 {% set transformedImages = craft.imagerx.transformImage(rawImage, [
