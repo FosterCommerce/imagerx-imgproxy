@@ -38,7 +38,6 @@
 		"ecs:check": "ecs check --ansi --memory-limit=1G",
 		"ecs:fix": "ecs check --ansi --fix --memory-limit=1G",
 		"rector:fix": "rector process --config rector.php",
-		"rector:dry-run": "rector process --dry-run --config rector.php",
-		"test": "pest"
+		"rector:dry-run": "rector process --dry-run --config rector.php"
 	}
 }
