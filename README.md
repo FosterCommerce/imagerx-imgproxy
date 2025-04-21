@@ -24,10 +24,13 @@ return [
     'baseUrl' => getenv('IMGPROXY_BASE_URL'),
     'key' => getenv('IMGPROXY_KEY') ?: null,
     'salt' => getenv('IMGPROXY_SALT') ?: null,
+    'customSignature' => getenv('IMGPROXY_CUSTOM_SIGNATURE') ?: null,
     'encoded' => true,
     'defaultParams' => [],
 ];
 ```
+
+Take a look at the Imgproxy [processing options](https://docs.imgproxy.net/usage/processing#processing-options) for a list of available options to use in the `defaultParams` array.
 
 ## Usage
 
@@ -47,6 +50,8 @@ Once installed and configured, you can use the transformer with ImagerX:
   },
 }) %}
 ```
+
+Take a look at the Imgproxy [processing options](https://docs.imgproxy.net/usage/processing#processing-options) for a list of available options to use in the `transformerParams` array.
 
 ## License
 

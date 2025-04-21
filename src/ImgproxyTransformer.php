@@ -47,7 +47,8 @@ class ImgproxyTransformer extends Component implements TransformerInterface
 				$config->baseUrl,
 				$config->key,
 				$config->salt,
-				$config->encoded
+				$config->encoded,
+				$config->customSignature,
 			);
 
 			$sourceUrl = $this->getSourceUrl($image);
