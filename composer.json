@@ -15,22 +15,16 @@
 		}
 	},
 	"require": {
-		"fostercommerce/imgproxy": "dev-main",
 		"spacecatninja/imager-x": "^5.1",
 		"craftcms/cms": "^5.0.0",
-		"php": "^8.2"
+		"php": "^8.2",
+		"fostercommerce/imgproxy": "^1.0"
 	},
 	"require-dev": {
 		"fostercommerce/ecs": "dev-main",
 		"fostercommerce/rector": "dev-main",
 		"phpstan/phpstan": "^1.12"
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/FosterCommerce/imgproxy-php.git"
-		}
-	],
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"config": {
